@@ -1,0 +1,11 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 15rem;
+	background-color: $grey-light;
+
+	.search-bar {
+		width: 50rem;
+	}
+}

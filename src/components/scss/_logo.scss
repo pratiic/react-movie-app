@@ -1,0 +1,17 @@
+.logo {
+	color: $primary-blue;
+	cursor: pointer;
+
+	.logo-upper {
+		letter-spacing: 3px;
+		font-weight: 700;
+		font-size: 3rem;
+		font-family: $font-stack-secondary;
+	}
+
+	.logo-lower {
+		letter-spacing: 2px;
+		font-size: 2rem;
+		font-weight: 600;
+	}
+}

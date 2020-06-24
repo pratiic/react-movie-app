@@ -1,0 +1,31 @@
+.form {
+	.input-group {
+		position: relative;
+	}
+
+	.search-icon {
+		font-size: 1.75rem;
+		position: absolute;
+		left: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $grey-lighter;
+	}
+
+	.search-bar {
+		border: 2px solid $grey-lighter;
+		outline: none;
+		height: 3.7rem;
+		font-size: 1.7rem;
+		font-weight: 500;
+		padding: 0 3.5rem;
+		border-radius: 3rem;
+		background-color: $grey-light;
+		color: white;
+	}
+
+	::-webkit-input-placeholder {
+		font-weight: 600;
+		color: $grey-lighter;
+	}
+}

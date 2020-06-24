@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  overflow-x: hidden;
+  background-color: #181818;
+  color: white;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-large {
+  font-size: 4rem;
+}
+
+.text-medium {
+  font-size: 2.5rem;
+}
+
+.text-small {
+  font-size: 1.75rem;
+}
+
+.form .input-group {
+  position: relative;
+}
+
+.form .search-icon {
+  font-size: 1.75rem;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb7b7;
+}
+
+.form .search-bar {
+  border: 2px solid #bbb7b7;
+  outline: none;
+  height: 3.7rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding: 0 3.5rem;
+  border-radius: 3rem;
+  background-color: #212121;
+  color: white;
+}
+
+.form ::-webkit-input-placeholder {
+  font-weight: 600;
+  color: #bbb7b7;
+}
+
+.logo {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.logo .logo-upper {
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 3rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo .logo-lower {
+  letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 15rem;
+  background-color: #212121;
+}
+
+.header .search-bar {
+  width: 50rem;
+}
