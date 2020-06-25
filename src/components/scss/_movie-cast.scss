@@ -1,0 +1,15 @@
+.movie-cast {
+	padding: 3rem 15rem;
+
+	.heading-secondary {
+		margin-bottom: 3rem;
+	}
+
+	.movie-cast-main {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		grid-column-gap: 3rem;
+		grid-row-gap: 5rem;
+		justify-content: center;
+	}
+}

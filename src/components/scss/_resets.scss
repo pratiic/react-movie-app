@@ -8,6 +8,14 @@
 
 html {
 	font-size: 62.5%;
+
+	@media screen and (max-width: 800px) {
+		font-size: 50%;
+	}
+
+	@media screen and (min-width: 1500px) {
+		font-size: 80%;
+	}
 }
 
 body {
@@ -16,6 +24,17 @@ body {
 	background-color: $grey-dark;
 	color: white;
 	font-size: 1.75rem;
+	line-height: 1.5;
+
+	#root > * {
+		&.show {
+			display: block;
+		}
+
+		&.hide {
+			display: none;
+		}
+	}
 }
 
 a {
@@ -25,4 +44,20 @@ a {
 
 li {
 	list-style-type: none;
+}
+
+.paddingHeaderFeature {
+	padding: 0 15rem;
+
+	@media screen and (max-width: 1200px) {
+		padding: 0 10rem;
+	}
+
+	@media screen and (max-width: 800px) {
+		padding: 0 4rem;
+	}
+
+	@media screen and (min-width: 1800px) {
+		padding: 0 17rem;
+	}
 }

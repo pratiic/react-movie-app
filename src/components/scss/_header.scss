@@ -1,12 +1,28 @@
 .header {
+	@extend .paddingHeaderFeature;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 15rem;
 	height: 15vh;
 	background-color: $grey-light;
 
 	.search-bar {
 		width: 50rem;
+
+		@media screen and (max-width: 1000px) {
+			width: 40rem;
+		}
+
+		@media screen and (max-width: 800px) {
+			width: 30rem;
+		}
+
+		@media screen and (max-width: 500px) {
+			width: 25rem;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 20rem;
+		}
 	}
 }

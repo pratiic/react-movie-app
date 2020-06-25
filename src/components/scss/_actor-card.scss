@@ -1,0 +1,34 @@
+.actor-card {
+	position: relative;
+	cursor: pointer;
+
+	.actor-image {
+		border: 3px solid $grey-lighter;
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
+
+	.actor-details {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: $grey-lighter;
+		color: $grey-dark;
+
+		p {
+			text-align: center;
+			font-size: 1.5rem;
+
+			&.actor-name {
+				color: black;
+				font-weight: 700;
+			}
+
+			&.actor-character {
+				font-weight: 600;
+			}
+		}
+	}
+}

@@ -3,7 +3,7 @@
 
 	.results-main {
 		margin: auto;
-		max-width: 144rem;
+		max-width: 125rem;
 		overflow-x: hidden;
 		padding: 5rem 0;
 		display: grid;
@@ -13,15 +13,11 @@
 		justify-content: center;
 	}
 
-	&.show {
-		display: block;
-	}
-
-	&.hide {
-		display: none;
-	}
-
 	&.search-results {
-		padding: 3rem 20rem;
+		padding: 3rem 12rem;
+
+		.results-main {
+			grid-template-columns: repeat(auto-fit, minmax(20rem, 27rem));
+		}
 	}
 }

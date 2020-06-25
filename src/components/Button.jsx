@@ -4,6 +4,8 @@ class Button extends React.Component {
 	buttonClickHandler = () => {
 		if (this.props.function === "load-more") {
 			this.props.loadMorePopularMovies();
+		} else if (this.props.function === "view-details") {
+			this.props.getMovieId(this.props.featuredMovie.id);
 		}
 	};
 

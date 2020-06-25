@@ -8,15 +8,21 @@
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
+		object-position: center;
 		display: block;
 	}
 
 	.featured-movie-info {
+		@extend .paddingHeaderFeature;
 		position: absolute;
-		left: 15rem;
+		width: 100%;
 		bottom: 10rem;
 		z-index: 5;
 		animation: featured-movie-info-animation 700ms ease-in;
+
+		@media screen and (max-width: 800px) {
+			bottom: 15rem;
+		}
 	}
 
 	h1 {
@@ -25,20 +31,11 @@
 
 	p {
 		width: 70%;
-		line-height: 1.5;
 		margin-bottom: 2rem;
 	}
 
 	&::after {
 		@include overlay(black, 0.5);
-	}
-
-	&.show {
-		display: block;
-	}
-
-	&.hide {
-		display: none;
 	}
 }
 
