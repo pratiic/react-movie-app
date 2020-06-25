@@ -1,0 +1,21 @@
+.movie-card {
+	border: 3px solid $grey-lighter;
+	border-radius: 5px;
+	cursor: pointer;
+
+	img {
+		height: 100%;
+		width: 100%;
+		display: block;
+		object-fit: cover;
+	}
+
+	&:hover {
+		border: 3px solid $primary-blue;
+		box-shadow: 0 0 1.5rem 0 rgba(0, 123, 255, 0.5);
+	}
+
+	&:active {
+		transform: scale(0.993);
+	}
+}

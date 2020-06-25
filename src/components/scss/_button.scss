@@ -1,0 +1,31 @@
+.button {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 600;
+	border: none;
+	outline: none;
+	border: 2px solid $primary-blue;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: $primary-blue;
+	padding: 0.85rem 1.5rem;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $primary-blue;
+		color: white;
+	}
+
+	&-large {
+		padding: 1rem 1.7rem;
+		font-size: 1.7rem;
+		border-radius: 2rem;
+
+		&:active {
+			transform: scale(0.94);
+		}
+
+		display: block;
+		margin: 0 auto 5rem auto;
+	}
+}

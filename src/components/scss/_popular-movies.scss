@@ -1,0 +1,11 @@
+.popular-movies {
+	padding: 0 15rem;
+
+	.popular-movies-main {
+		padding: 5rem 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		grid-gap: 3rem;
+		justify-content: center;
+	}
+}
