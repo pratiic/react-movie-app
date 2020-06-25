@@ -1,7 +1,10 @@
 .popular-movies {
-	padding: 0 15rem;
+	padding: 0 7rem;
 
 	.popular-movies-main {
+		margin: auto;
+		max-width: 144rem;
+		overflow-x: hidden;
 		padding: 5rem 0;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
