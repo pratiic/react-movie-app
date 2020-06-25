@@ -11,6 +11,10 @@ class SearchBar extends React.Component {
 
 	formSubmitHandler = (event) => {
 		event.preventDefault();
+
+		if (this.state.searchTerm) {
+			this.props.fetchSearchedMovie(this.state.searchTerm);
+		}
 	};
 
 	render() {

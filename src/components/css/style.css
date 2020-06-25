@@ -77,8 +77,9 @@ li {
 }
 
 .heading-secondary {
-  font-size: 3rem;
+  font-size: 3.5rem;
   letter-spacing: 2px;
+  font-weight: 400;
 }
 
 .form .input-group {
@@ -186,6 +187,14 @@ li {
   opacity: 0.5;
 }
 
+.featured.show {
+  display: block;
+}
+
+.featured.hide {
+  display: none;
+}
+
 @keyframes featured-movie-info-animation {
   0% {
     transform: translateY(15rem);
@@ -228,39 +237,67 @@ li {
   transform: scale(0.94);
 }
 
-.popular-movies {
-  padding: 0 7rem;
+.results {
+  padding: 3rem 7rem;
 }
 
-.popular-movies .popular-movies-main {
+.results .results-main {
   margin: auto;
   max-width: 144rem;
   overflow-x: hidden;
   padding: 5rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-auto-rows: max-content;
   grid-gap: 3rem;
   justify-content: center;
 }
 
-.movie-card {
+.results.show {
+  display: block;
+}
+
+.results.hide {
+  display: none;
+}
+
+.results.search-results {
+  padding: 3rem 20rem;
+}
+
+.movie-card .movie-image {
   border: 3px solid #bbb7b7;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 0.5rem;
+  position: relative;
 }
 
-.movie-card img {
+.movie-card .movie-image img {
   height: 100%;
   width: 100%;
   display: block;
   object-fit: cover;
 }
 
-.movie-card:hover {
+.movie-card .movie-image:hover {
   border: 3px solid #007bff;
   box-shadow: 0 0 1.5rem 0 rgba(0, 123, 255, 0.5);
 }
 
-.movie-card:active {
+.movie-card .movie-image:active {
   transform: scale(0.993);
+}
+
+.movie-card .movie-info {
+  margin-left: 1rem;
+}
+
+.movie-card .movie-info .movie-name {
+  word-spacing: 3px;
+  margin-bottom: 0.2rem;
+}
+
+.movie-card .movie-info .movie-release-date {
+  color: #bbb7b7;
 }

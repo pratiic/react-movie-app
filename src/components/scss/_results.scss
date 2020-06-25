@@ -1,14 +1,27 @@
-.popular-movies {
-	padding: 0 7rem;
+.results {
+	padding: 3rem 7rem;
 
-	.popular-movies-main {
+	.results-main {
 		margin: auto;
 		max-width: 144rem;
 		overflow-x: hidden;
 		padding: 5rem 0;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		grid-auto-rows: max-content;
 		grid-gap: 3rem;
 		justify-content: center;
+	}
+
+	&.show {
+		display: block;
+	}
+
+	&.hide {
+		display: none;
+	}
+
+	&.search-results {
+		padding: 3rem 20rem;
 	}
 }

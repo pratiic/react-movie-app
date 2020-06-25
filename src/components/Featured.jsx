@@ -2,8 +2,12 @@ import React from "react";
 
 class Featured extends React.Component {
 	render() {
+		{
+			console.log(this.props.class);
+		}
+
 		return (
-			<div className="featured">
+			<div className={`featured ${this.props.class}`}>
 				<img
 					src={`${this.props.baseImageURL}${this.props.featuredMovie.poster_path}`}
 					alt=""

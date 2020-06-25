@@ -1,21 +1,38 @@
 .movie-card {
-	border: 3px solid $grey-lighter;
-	border-radius: 5px;
-	cursor: pointer;
+	.movie-image {
+		border: 3px solid $grey-lighter;
+		border-radius: 5px;
+		cursor: pointer;
+		margin-bottom: 0.5rem;
+		position: relative;
 
-	img {
-		height: 100%;
-		width: 100%;
-		display: block;
-		object-fit: cover;
+		img {
+			height: 100%;
+			width: 100%;
+			display: block;
+			object-fit: cover;
+		}
+
+		&:hover {
+			border: 3px solid $primary-blue;
+			box-shadow: 0 0 1.5rem 0 rgba(0, 123, 255, 0.5);
+		}
+
+		&:active {
+			transform: scale(0.993);
+		}
 	}
 
-	&:hover {
-		border: 3px solid $primary-blue;
-		box-shadow: 0 0 1.5rem 0 rgba(0, 123, 255, 0.5);
-	}
+	.movie-info {
+		margin-left: 1rem;
 
-	&:active {
-		transform: scale(0.993);
+		.movie-name {
+			word-spacing: 3px;
+			margin-bottom: 0.2rem;
+		}
+
+		.movie-release-date {
+			color: $grey-lighter;
+		}
 	}
 }

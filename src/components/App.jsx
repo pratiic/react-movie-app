@@ -5,7 +5,8 @@ import Header from "./Header.jsx";
 import Logo from "./Logo.jsx";
 import Featured from "./Featured.jsx";
 import Button from "./Button.jsx";
-import PopularMovies from "./PopularMovies.jsx";
+import Results from "./Results.jsx";
+import Title from "./Title.jsx";
 
 class App extends React.Component {
 	state = {
@@ -13,11 +14,16 @@ class App extends React.Component {
 		popularMovie: {},
 		totalPages: null,
 		loadedMore: false,
+		searchResults: [],
+		searchResultsClass: "hide",
+		featuredClass: "show",
 	};
 
 	apiInfo = {
 		url: "https://api.themoviedb.org/3",
+		base: "?language=en-US&api_key=04d44457631804b60abc176ff4864ecd",
 		popularMovies: "/movie/popular",
+		movieSearch: "/search/movie",
 		page: 1,
 		language: "en-US",
 		key: "04d44457631804b60abc176ff4864ecd",
@@ -25,11 +31,9 @@ class App extends React.Component {
 	};
 
 	loadPopularMovies = () => {
-		let { url, popularMovies, page, language, key } = this.apiInfo;
+		let { url, popularMovies, page, base } = this.apiInfo;
 
-		fetch(
-			`${url}${popularMovies}?api_key=${key}&page=${page}&language=${language}`
-		)
+		fetch(`${url}${popularMovies}${base}&page=${page}`)
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
@@ -67,25 +71,62 @@ class App extends React.Component {
 		}
 	};
 
+	fetchSearchedMovie = (searchTerm) => {
+		let { url, movieSearch, page, base } = this.apiInfo;
+
+		fetch(`${url}${movieSearch}${base}&page=${page}&query=${searchTerm}`)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				this.setState({
+					searchResults: [...data.results],
+					searchResultsClass: "show",
+					featuredClass: "hide",
+				});
+			})
+			.catch((error) => console.log(error));
+	};
+
 	render() {
 		return (
 			<React.Fragment>
 				<Header>
 					<Logo />
-					<SearchBar placeholder={"Search for movies..."} />
+					<SearchBar
+						placeholder={"Search for movies..."}
+						fetchSearchedMovie={this.fetchSearchedMovie}
+					/>
 				</Header>
 
 				<Featured
 					featuredMovie={this.state.popularMovie}
 					baseImageURL={this.apiInfo.baseImageURL}
+					class={this.state.featuredClass}
 				>
 					<Button class={"view-more-button"} value={"view more"} />
 				</Featured>
 
-				<PopularMovies
-					popularMovies={this.state.popularMovies}
+				<Results
+					movies={this.state.searchResults}
 					baseImageURL={this.apiInfo.baseImageURL}
-				/>
+					class={`search-results ${this.state.searchResultsClass}`}
+				>
+					<Title
+						class={"text-center heading-secondary"}
+						value={"search results"}
+					/>
+				</Results>
+
+				<Results
+					movies={this.state.popularMovies}
+					baseImageURL={this.apiInfo.baseImageURL}
+					class={"popular-movies"}
+				>
+					<Title
+						class={"text-center heading-secondary"}
+						value={"popular movies"}
+					/>
+				</Results>
 
 				<Button
 					class={"load-more-button button-large"}
