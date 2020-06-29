@@ -221,14 +221,9 @@ li {
   height: 85vh;
   position: relative;
   margin-bottom: 3rem;
-}
-
-.featured img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  background-size: cover;
+  background-position: center;
+  overflow-y: scroll;
 }
 
 .featured .featured-movie-info {
@@ -252,6 +247,18 @@ li {
 .featured p {
   width: 70%;
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .featured p {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .featured p {
+    width: 90%;
+  }
 }
 
 .featured::after {
@@ -405,17 +412,11 @@ li {
 
 .movie-details {
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
   position: relative;
-}
-
-.movie-details .backdrop-image {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  display: block;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .movie-details .movie-details-main {

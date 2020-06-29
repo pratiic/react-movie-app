@@ -4,13 +4,9 @@
 	position: relative;
 	margin-bottom: 3rem;
 
-	img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		object-position: center;
-		display: block;
-	}
+	background-size: cover;
+	background-position: center;
+	overflow-y: scroll;
 
 	.featured-movie-info {
 		@extend .paddingHeaderFeature;
@@ -32,6 +28,14 @@
 	p {
 		width: 70%;
 		margin-bottom: 2rem;
+
+		@media screen and (max-width: 500px) {
+			width: 85%;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 90%;
+		}
 	}
 
 	&::after {

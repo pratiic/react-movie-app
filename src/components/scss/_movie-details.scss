@@ -1,16 +1,10 @@
 .movie-details {
 	width: 100%;
-	min-height: 80vh;
+	min-height: 100vh;
 	position: relative;
-
-	.backdrop-image {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		left: 0;
-		top: 0;
-		display: block;
-	}
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 
 	.movie-details-main {
 		position: absolute;

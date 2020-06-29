@@ -6,7 +6,7 @@ class ActorCard extends React.Component {
 			<div className="actor-card">
 				<img
 					src={this.props.actorImageURL}
-					alt=""
+					alt="image"
 					className="actor-image"
 				/>
 

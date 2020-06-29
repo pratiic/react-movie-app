@@ -14,7 +14,7 @@ import HomeButton from "./HomeButton.jsx";
 class App extends React.Component {
 	state = {
 		popularMovies: [],
-		popularMovie: {},
+		featuredMovie: {},
 		totalPages: null,
 		loadedMore: false,
 		searchResults: [],
@@ -33,18 +33,25 @@ class App extends React.Component {
 	};
 
 	apiInfo = {
+		//the main url
 		url: "https://api.themoviedb.org/3",
+
+		//this is common for all types of requests
 		base: "?language=en-US&api_key=04d44457631804b60abc176ff4864ecd",
 
+		//for getting popular movies, for searching movies and details of a specific movie
 		popularMovies: "/movie/popular",
 		movieSearch: "/search/movie",
 		movieDetails: "/movie/",
 
+		//the page that gets retrieved
 		page: 1,
 
+		//the main url for images
 		baseImageURL: "https://image.tmdb.org/t/p/original",
 	};
 
+	//this gets all the popular movies
 	loadPopularMovies = () => {
 		let { url, popularMovies, page, base } = this.apiInfo;
 
@@ -52,21 +59,25 @@ class App extends React.Component {
 			.then((response) => response.json())
 			.then((data) => {
 				if (!this.state.loadedMore) {
+					//if no request has been made to load more movies by clicking load more button
+
 					this.setState({
 						popularMovies: [
 							...this.state.popularMovies,
 							...data.results,
 						],
-						popularMovie: { ...data.results[4] },
+						featuredMovie: { ...data.results[2] },
 						totalPages: data.total_pages,
 					});
 				} else {
+					//if no request has been made to load more movies by clicking load more button
+
 					this.setState({
 						popularMovies: [
 							...this.state.popularMovies,
 							...data.results,
 						],
-						popularMovie: { ...this.state.popularMovies[4] },
+						featuredMovie: { ...this.state.popularMovies[0] },
 						totalPages: data.total_pages,
 					});
 				}
@@ -75,9 +86,11 @@ class App extends React.Component {
 	};
 
 	componentDidMount() {
+		//when the app first loads up popular movies are fetched
 		this.loadPopularMovies();
 	}
 
+	//when load more button is clicked
 	loadMorePopularMovies = () => {
 		if (++this.apiInfo.page !== this.state.totalPages) {
 			this.loadPopularMovies();
@@ -85,6 +98,7 @@ class App extends React.Component {
 		}
 	};
 
+	//when a movie is searched
 	fetchSearchedMovie = (searchTerm) => {
 		let { url, movieSearch, page, base } = this.apiInfo;
 
@@ -107,10 +121,41 @@ class App extends React.Component {
 			.catch((error) => console.log(error));
 	};
 
-	scrollToTop = () => {
-		window.scrollTo(0, 0);
+	//to get the id of a movie
+	getMovieId = (id) => {
+		this.fetchMovieCastAndCrew(id);
+		this.fetchMovieDetails(id);
 	};
 
+	//to fetch the cast and crew of a movie
+	fetchMovieCastAndCrew = (id) => {
+		let { url, base } = this.apiInfo;
+
+		fetch(`${url}/movie/${id}/credits${base}`)
+			.then((response) => response.json())
+			.then((data) => {
+				this.setState({ cast: [...data.cast] });
+			})
+			.catch((error) => console.log(error));
+
+		this.renderMovieDetails();
+	};
+
+	//to fetch details about a movie
+	fetchMovieDetails = (id) => {
+		let { url, movieDetails, base } = this.apiInfo;
+
+		fetch(`${url}${movieDetails}${id}${base}`)
+			.then((response) => response.json())
+			.then((data) => {
+				this.setState({ movieDetails: { ...movieDetails, ...data } });
+			})
+			.catch((error) => console.log(error));
+
+		this.renderMovieDetails();
+	};
+
+	//to render details about a movie
 	renderMovieDetails = () => {
 		if (Object.keys(this.state.movieDetails).length > 0) {
 			this.setState({
@@ -127,39 +172,14 @@ class App extends React.Component {
 		}
 	};
 
-	fetchMovieDetails = (id) => {
-		let { url, movieDetails, base } = this.apiInfo;
-
-		fetch(`${url}${movieDetails}${id}${base}`)
-			.then((response) => response.json())
-			.then((data) => {
-				this.setState({ movieDetails: { ...movieDetails, ...data } });
-			})
-			.catch((error) => console.log(error));
-
-		this.renderMovieDetails();
-	};
-
-	fetchMovieCastAndCrew = (id) => {
-		let { url, base } = this.apiInfo;
-
-		fetch(`${url}/movie/${id}/credits${base}`)
-			.then((response) => response.json())
-			.then((data) => {
-				this.setState({ cast: [...data.cast] });
-			})
-			.catch((error) => console.log(error));
-
-		this.renderMovieDetails();
-	};
-
-	getMovieId = (id) => {
-		this.fetchMovieCastAndCrew(id);
-		this.fetchMovieDetails(id);
-	};
-
+	//to reload the whole app
 	reload = () => {
 		window.location.reload();
+	};
+
+	//to scroll to the top of the page
+	scrollToTop = () => {
+		window.scrollTo(0, 0);
 	};
 
 	render() {
@@ -180,7 +200,7 @@ class App extends React.Component {
 				/>
 
 				<Featured
-					featuredMovie={this.state.popularMovie}
+					featuredMovie={this.state.featuredMovie}
 					baseImageURL={this.apiInfo.baseImageURL}
 					class={this.state.featuredClass}
 				>
@@ -189,7 +209,7 @@ class App extends React.Component {
 						value={"view more"}
 						function={"view-details"}
 						getMovieId={this.getMovieId}
-						featuredMovie={this.state.popularMovie}
+						featuredMovie={this.state.featuredMovie}
 					/>
 				</Featured>
 

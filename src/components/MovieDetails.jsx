@@ -50,13 +50,12 @@ class MovieDetails extends React.Component {
 
 	render() {
 		return (
-			<div className={`movie-details ${this.props.class}`}>
-				<img
-					src={`${this.props.baseImageURL}${this.props.backdropURL}`}
-					alt=""
-					className="backdrop-image"
-				/>
-
+			<div
+				className={`movie-details ${this.props.class}`}
+				style={{
+					backgroundImage: `url("${this.props.baseImageURL}${this.props.backdropURL}")`,
+				}}
+			>
 				<div className="movie-details-main">
 					{/* <div className="poster-image-container">
 						<img
