@@ -223,7 +223,7 @@ li {
   margin-bottom: 3rem;
   background-size: cover;
   background-position: center;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .featured .featured-movie-info {

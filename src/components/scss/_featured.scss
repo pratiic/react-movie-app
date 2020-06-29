@@ -6,7 +6,7 @@
 
 	background-size: cover;
 	background-position: center;
-	overflow-y: scroll;
+	overflow-y: hidden;
 
 	.featured-movie-info {
 		@extend .paddingHeaderFeature;
